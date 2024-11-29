@@ -1,7 +1,7 @@
 <?php 
 
 
-abstract class pokemon {
+abstract class Pokemon {
     private $nom;
     private $type;
     private $pointsDeVie ;
@@ -63,7 +63,23 @@ abstract class pokemon {
     return $this->defense;
   }
 
+
+    public function attaquer(Pokemon $adversaire): void {
+
+        $degats = $this->puissanceAttaque - $adversaire->defense;
+        $degats = max(0, $degats); // Les dégâts ne peuvent pas être négatifs
+        $adversaire->recevoirDegats($degats);
+    }
+
+    public function recevoirDegats(int $degats): void {
+        $this->pointsDeVie -= $degats;
+        $this->pointsDeVie = max(0, $this->pointsDeVie); // Les PV ne peuvent pas être négatifs
+    }
    
 
-   
+    public function estKO(): bool {
+        return $this->pointsDeVie <= 0;
+    }
+
+    abstract public function capaciteSpeciale(Pokemon $adversaire): void;
 }
