@@ -7,6 +7,18 @@ abstract class Pokemon {
     private $pointsDeVie;
     private $puissanceAttaque; 
     private $defense;
+    private $maxPdv;
+
+    public function setMaxPdv(int $value): self
+    {
+      $this->maxPdv = $value;
+      return $this;
+    }
+
+    public function getMaxPdv(): int
+    {
+      return $this->maxPdv;
+    }
 
     public function setNom(string $value): self
   {
