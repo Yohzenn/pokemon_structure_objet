@@ -4,7 +4,7 @@
 abstract class Pokemon {
     private $nom;
     private $type;
-    private $pointsDeVie ;
+    private $pointsDeVie;
     private $puissanceAttaque; 
     private $defense;
 
