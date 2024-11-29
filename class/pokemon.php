@@ -82,4 +82,6 @@ abstract class Pokemon {
     }
 
     abstract public function capaciteSpeciale(Pokemon $adversaire): void;
+
+    
 }
