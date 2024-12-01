@@ -1,6 +1,6 @@
 <?php
 
-class PokemonPlante extends Pokemon {
+class PokemonFeu extends Pokemon {
     public function capaciteSpeciale(Pokemon $adversaire): void
     {
         $bonus = $adversaire->getType() === "Plante" ? 10 : 0;

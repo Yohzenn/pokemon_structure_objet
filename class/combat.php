@@ -1,31 +1,38 @@
 <?php
 
-class Combat{
-    public function demarrerCombat(pokemon $pokemon1, pokemon $pokemon2){
-        while (!$pokemon1.estKO() && !$pokemon2.estKO()){
+class Combat {
+    public function demarrerCombat(Pokemon $pokemon1, Pokemon $pokemon2) {
+        while (!$pokemon1->estKO() && !$pokemon2->estKO()) {
+            // Tour du Pokémon 1
             $randomNumber = rand(1, 5);
-            tourDeCombat( $pokemon1, $pokemon2, $randomNumber);
-            $pokemon2.getPointsDeVie();
-            if (!$pokemon2.estKO());
-                tourDeCombat($pokemon1, $pokemon2);
-                $pokemon1.getPointsDeVie();
-        }
-        return determinerVainqueur($pokemon1, $pokemon2);
+            $this->tourDeCombat($pokemon1, $pokemon2, $randomNumber);
 
+            if ($pokemon2->estKO()) {
+                break; // Arrêter si le Pokémon 2 est KO
+            }
+
+            // Tour du Pokémon 2
+            $randomNumber = rand(1, 5);
+            $this->tourDeCombat($pokemon2, $pokemon1, $randomNumber);
+        }
+
+        return $this->determinerVainqueur($pokemon1, $pokemon2);
     }
 
-    public function tourDeCombat(pokemon $attaquant, pokemon $defenseur, $attaque){
-        if ($attaque <=3 ){
-            $attaquant.attaquer($defenseur);
+    public function tourDeCombat(Pokemon $attaquant, Pokemon $defenseur, int $attaque) {
+        if ($attaque >= 1 && $attaque <= 3) {
+            echo $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque normale de ' .$attaquant->getPuissanceAttaque();
+            echo '</br>';
+            $attaquant->attaquer($defenseur); // Attaque normale
+        } else {
+            echo $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque speciale';
+            echo '</br>';
+            $attaquant->capaciteSpeciale($defenseur); // Capacité spéciale
         }
-        else{
-            $attaquant.capaciteSpeciale($defenseur);
-        }
-        return $defenseur;
     }
 
-    public function determinerVainqueur(pokemon $pokemon1, pokemon $pokemon2){
-        if (!$pokemon1.estKO()){
+    public function determinerVainqueur(Pokemon $pokemon1, Pokemon $pokemon2) {
+        if (!$pokemon1->estKO()) {
             return $pokemon1;
         }
         return $pokemon2;
