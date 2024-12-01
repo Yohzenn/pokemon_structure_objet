@@ -93,7 +93,7 @@ abstract class Pokemon {
         return $this->pointsDeVie <= 0;
     }
 
-    abstract public function capaciteSpeciale(Pokemon $adversaire): void;
+    abstract public function capaciteSpeciale(Pokemon $adversaire): int;
 
     
 }
