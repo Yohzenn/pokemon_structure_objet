@@ -76,11 +76,12 @@ abstract class Pokemon {
   }
 
 
-    public function attaquer(Pokemon $adversaire): void {
+    public function attaquer(Pokemon $adversaire): int {
 
-        $degats = $this->puissanceAttaque - $adversaire->defense;
+        $degats = $this->getPuissanceAttaque() - $adversaire->getDefense();
         $degats = max(0, $degats); // Les dégâts ne peuvent pas être négatifs
         $adversaire->recevoirDegats($degats);
+        return $degats;
     }
 
     public function recevoirDegats(int $degats): void {
@@ -93,7 +94,7 @@ abstract class Pokemon {
         return $this->pointsDeVie <= 0;
     }
 
-    abstract public function capaciteSpeciale(Pokemon $adversaire): int;
+    abstract public function capaciteSpeciale(Pokemon $adversaire): array;
 
     
 }

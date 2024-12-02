@@ -41,7 +41,7 @@ require_once "./pokemon_ini.php";
             }
             ?>
         </select>
-        <input type="hidden" name="pokemon2_select" value="<?php echo rand(1, count($pokemonTab)-1);  ?>">
+        <input type="hidden" name="pokemon2_select" value="<?php echo rand(0, count($pokemonTab)-1);  ?>">
         <input type="submit" value="combattre">
 
 

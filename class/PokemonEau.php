@@ -1,12 +1,12 @@
 <?php
 
 class PokemonEau extends Pokemon {
-    public function capaciteSpeciale(Pokemon $adversaire): int
+    public function capaciteSpeciale(Pokemon $adversaire): array
     {
-        $bonus = $adversaire->getType() === "Feu" ? 10 : 0;
-        $degats = $this->getPuissanceAttaque() +  $bonus  - $adversaire->getDefense();
+        $bonus = $adversaire->getType() === "feu" ? 10 : 0;
+        $degats = ($this->getPuissanceAttaque() - $adversaire->getDefense()) +  $bonus;
         $adversaire->recevoirDegats(max(0, $degats));
-        return $degats;
+        return [$degats,$bonus];
     }
 
 }

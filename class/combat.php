@@ -21,12 +21,13 @@ class Combat {
 
     public function tourDeCombat(Pokemon $attaquant, Pokemon $defenseur, int $attaque) {
         if ($attaque >= 1 && $attaque <= 3) {
-            echo $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque normale de ' .$attaquant->getPuissanceAttaque() . " dégats";
+            $degat = $attaquant->attaquer($defenseur); // Attaque normale
+            echo $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque normale de ' .$degat . " dégats";
             echo '</br>';
-            $attaquant->attaquer($defenseur); // Attaque normale
+            
         } else {
             $degat = $attaquant->capaciteSpeciale($defenseur); // Capacité spéciale
-            echo $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque speciale de ' . $degat . " dégats";
+            echo $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque speciale de ' . $degat[0] . " dégats avec un bonus de ". $degat[1];
             echo '</br>';
         }
     }
