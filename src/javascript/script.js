@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return data;
   };
 
-  const updatePokemonDetails = async (selectElement) => {
-    const selectedOption = selectElement.selectedOptions[0];
+  const updatePokemonDetails = async () => {
     const data = await fetchPokemon(selectedOption);
     if (selectedOption) {
       const name = selectedOption.getAttribute("data-name");
