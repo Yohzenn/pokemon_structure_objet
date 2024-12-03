@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const swiper = new Swiper(".swiper", {
     slidesPerView: 3,
     centeredSlides: true,
+    spaceBetween: 80,
+    setWrapperSize: true,
     loop: true,
     navigation: {
       nextEl: ".swiper-button-next",
@@ -9,19 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // Écouter l'événement de changement de slide
-  swiper.on("slideChange", () => {
-    const activeIndex = swiper.realIndex; // Index réel de la slide active
-    const activeSlide = swiper.slides[activeIndex]; // Élément de la slide active
-    const pokemonId = activeSlide.querySelector("#id_pokemon").value; // ID du Pokémon
-    console.log("Slide active:", activeIndex, "ID Pokémon:", pokemonId);
+  // Ajouter une classe spéciale à la slide centrale
+  const updateActiveSlide = () => {
+    const slides = swiper.slides;
+    slides.forEach((slide) => slide.classList.remove("active-slide"));
+    slides.forEach((slide) => (slide.style.transform = ""));
+    const activeSlide = slides[swiper.activeIndex];
+    console.log(activeSlide.querySelector("#id_pokemon").value);
+    if (activeSlide) {
+      activeSlide.classList.add("active-slide"); // Ajouter la classe à la slide centrale
+      document.querySelector(".active-slide").style.transform = "scale(1.2)";
+      document.getElementById("pokemon_select_hidden").value =
+        activeSlide.querySelector("#id_pokemon").value;
+    }
+  };
 
-    // Optionnel : Envoyer l'information à PHP via une requête fetch
-    fetch(`update_active_slide.php?pokemon_id=${pokemonId}`)
-      .then((response) => response.text())
-      .then((data) => {
-        console.log("Réponse serveur:", data);
-      })
-      .catch((error) => console.error("Erreur:", error));
-  });
+  // Mettre à jour la classe après le chargement initial
+  updateActiveSlide();
+
+  // Mettre à jour la classe à chaque changement de slide
+  swiper.on("slideChange", updateActiveSlide);
 });
