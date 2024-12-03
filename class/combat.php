@@ -1,6 +1,16 @@
 <?php
 
 class Combat {
+
+    private $historique;
+
+    public function getHistorique(){
+        return $this->historique;
+    }
+    public function setHistorique($tour){
+        $this->historique[] = $tour;
+        return $this;
+    }
     public function demarrerCombat(Pokemon $pokemon1, Pokemon $pokemon2) {
         while (!$pokemon1->estKO() && !$pokemon2->estKO()) {
             // Tour du Pokémon 1
@@ -21,14 +31,14 @@ class Combat {
 
     public function tourDeCombat(Pokemon $attaquant, Pokemon $defenseur, int $attaque) {
         if ($attaque >= 1 && $attaque <= 3) {
-            $degat = $attaquant->attaquer($defenseur); // Attaque normale
-            echo $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque normale de ' .$degat . " dégats";
-            echo '</br>';
+            $degat = $attaquant->attaquer($defenseur); 
+            $tour = $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque normale de ' .$degat . " dégats";
+            $this->setHistorique($tour);
             
         } else {
             $degat = $attaquant->capaciteSpeciale($defenseur); // Capacité spéciale
-            echo $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque speciale de ' . $degat[0] . " dégats avec un bonus de ". $degat[1];
-            echo '</br>';
+            $tour =  $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque speciale de ' . $degat[0] . " dégats avec un bonus de ". $degat[1];
+            $this->setHistorique($tour);
         }
     }
 
