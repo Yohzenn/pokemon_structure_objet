@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pokemonSelect = document.getElementById("pokemon_select");
-  console.log(pokemonSelect);
 
   const fetchPokemon = async (pokemon) => {
     const repsonse = await fetch(
@@ -34,8 +33,4 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("pokemon-image").src = data.sprites.front_default;
     }
   };
-
-  pokemonSelect.addEventListener("change", () => {
-    updatePokemonDetails(pokemonSelect);
-  });
 });

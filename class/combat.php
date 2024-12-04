@@ -7,8 +7,8 @@ class Combat {
     public function getHistorique(){
         return $this->historique;
     }
-    public function setHistorique($tour){
-        $this->historique[] = $tour;
+    public function setHistorique($tour,$degat){
+        $this->historique[] = [$tour,$degat];
         return $this;
     }
     public function demarrerCombat(Pokemon $pokemon1, Pokemon $pokemon2) {
@@ -33,12 +33,12 @@ class Combat {
         if ($attaque >= 1 && $attaque <= 3) {
             $degat = $attaquant->attaquer($defenseur); 
             $tour = $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque normale de ' .$degat . " dégats";
-            $this->setHistorique($tour);
+            $this->setHistorique($tour, $degat);
             
         } else {
             $degat = $attaquant->capaciteSpeciale($defenseur); // Capacité spéciale
             $tour =  $attaquant->getNom() .' attaque '. $defenseur->getNom(). ' avec une attaque speciale de ' . $degat[0] . " dégats avec un bonus de ". $degat[1];
-            $this->setHistorique($tour);
+            $this->setHistorique($tour, $degat[0]);
         }
     }
 

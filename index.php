@@ -23,7 +23,7 @@ require_once "./pokemon_ini.php";
         echo "<h2>Combat entre : </h2>";
         echo "<p>Pokemon 1 : " . $pokemon1->getNom() . "</p>";
         echo "<p>Pokemon 2 : " . $pokemon2->getNom() . "</p>";
-        $link = './front_combat.php/?pokemon1_select=' . $_GET['pokemon1_select'] . '&pokemon2_select=' . $_GET['pokemon2_select'];
+        $link = './front_combat.php?pokemon1_select=' . $_GET['pokemon1_select'] . '&pokemon2_select=' . $_GET['pokemon2_select'];
         echo "<a href='".$link."'>Lancer le combat</a>";
     } else {
         ?>
