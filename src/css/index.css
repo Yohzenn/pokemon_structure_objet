@@ -4,7 +4,22 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+  background: url(../img/forest.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* background-color: red; */
+}
+
+.title_combat {
+    text-align: center;
+    /* margin-top: 5%; */
+}
+
 /* SWIPER */
+
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
@@ -33,7 +48,7 @@
 
 .swiper {
   width: 70%;
-  height: 90vh;
+  height: 70vh;
   display: flex;
   align-items: center;
 }
@@ -48,13 +63,11 @@ i {
 }
 
 .swiper-slide {
-  border: 8px solid #FFE165;
-  border-radius: 7px;
-  padding: 10px 20px;
-  height: 50vh;
+  height: 20vw;
+  background-color: aliceblue;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.7;
-  background-color: #4FBDEA;
+  width: 300px !important;
 }
 
 .active-slide {
@@ -63,56 +76,4 @@ i {
 }
 
 
-/* CSS */
-.title_combat {
-  text-align: center;
-  padding-top: 5rem;
 
-  color: white;
-}
-
-body {
-  background: url(../img/forest.jpg);
-  background-repeat: no-repeat;
-  /* background-position: center; */
-  background-size: cover;
-  backdrop-filter: brightness(60%);
- height: 100vh;
-}
-
-#top {
-  display: flex;
-  justify-content: space-between;
-
-}
-#pokemon-image {
-  background-color: white;
-  text-align: center;
-  width: 100%;
-  height: 45%;
-  margin-top: 1rem;
-}
-
-#type-holder {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-#faiblesse-holder {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-#attaque-holder {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-#defense-holder {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
