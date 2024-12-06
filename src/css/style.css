@@ -48,20 +48,19 @@ i {
 }
 
 .swiper-slide {
-  border: 8px solid #FFE165;
+  border: 8px solid #ffe165;
   border-radius: 7px;
   padding: 10px 20px;
-  height: 50vh;
+  height: fit-content;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.7;
-  background-color: #4FBDEA;
+  background-color: #4fbdea;
 }
 
 .active-slide {
   opacity: 1;
   z-index: 10;
 }
-
 
 /* CSS */
 .title_combat {
@@ -77,13 +76,12 @@ body {
   /* background-position: center; */
   background-size: cover;
   backdrop-filter: brightness(60%);
- height: 100vh;
+  height: 100vh;
 }
 
 #top {
   display: flex;
   justify-content: space-between;
-
 }
 #pokemon-image {
   background-color: white;
