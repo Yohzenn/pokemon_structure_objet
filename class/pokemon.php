@@ -78,7 +78,7 @@ abstract class Pokemon {
 
     public function attaquer(Pokemon $adversaire): int {
 
-        $degats = $this->getPuissanceAttaque() - $adversaire->getDefense();
+        $degats = floor($this->getPuissanceAttaque() - ($this->getPuissanceAttaque() * ($adversaire->getDefense() / 100)) );
         $degats = max(0, $degats); // Les dégâts ne peuvent pas être négatifs
         $adversaire->recevoirDegats($degats);
         return $degats;
@@ -86,7 +86,7 @@ abstract class Pokemon {
 
     public function recevoirDegats(int $degats): void {
         $this->pointsDeVie -= $degats;
-        $this->pointsDeVie = max(0, $this->pointsDeVie); // Les PV ne peuvent pas être négatifs
+        $this->pointsDeVie = max(0, $this->pointsDeVie);
     }
    
 

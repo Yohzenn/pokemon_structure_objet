@@ -1,7 +1,7 @@
 
 <?php
 
-if (isset($_GET['pokemon1_select']) && isset($_GET['pokemon2_select'])) {
+if (isset($_GET['pokemon1_select']) && isset($_GET['pokemon2_select']) && $_GET['pokemon1_select'] != $_GET['pokemon2_select']) {
     require_once "./pokemon_ini.php";
     require_once "./class/combat.php";
 
@@ -13,6 +13,9 @@ if (isset($_GET['pokemon1_select']) && isset($_GET['pokemon2_select'])) {
     $gagnant = $combat->demarrerCombat($pokemon1, $pokemon2);
     $tab_combat = $combat->getHistorique();
     $gagnant = $gagnant->getNom();
+}
+else{
+    header("Location: ./index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -110,6 +113,7 @@ if (isset($_GET['pokemon1_select']) && isset($_GET['pokemon2_select'])) {
         // Recuperation des infos
         const tabCombatElement = document.getElementById('tab_combat');
         const tabCombat = JSON.parse(tabCombatElement.getAttribute('data-combat'));
+        console.log(tabCombatElement)
 
         const gagnant = tabCombatElement.getAttribute('data-gagnant');
         const pokemon1 = tabCombatElement.getAttribute('data-first');
@@ -143,6 +147,7 @@ if (isset($_GET['pokemon1_select']) && isset($_GET['pokemon2_select'])) {
             text_apparition(info, `Le combat de ${pokemon1} contre ${pokemon2} va commencer !`);
         }, 15);
         document.addEventListener("keydown", function(event) {
+            console.log(i)
             if (event.key === "Enter" && !animated) {
                 if (i < tabCombat.length) {
                     if (toggle) {
@@ -171,7 +176,7 @@ if (isset($_GET['pokemon1_select']) && isset($_GET['pokemon2_select'])) {
                     i++;
                 } else if (first) {
                     first = !first;
-                    text_apparition(info, capitalizeFirstLetter(`${gagnant} a gagner !`)); 
+                    text_apparition(info, capitalizeFirstLetter(`${gagnant} a gagné !`)); 
                     document.addEventListener("keydown", function(event) {
                         if (event.key === "Enter") {
                             window.location.href = "./index.php";

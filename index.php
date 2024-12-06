@@ -16,7 +16,7 @@ require_once "./pokemon_ini.php";
     <h1>Combat entre deux Pokemons</h1>
 
     <?php
-    if (isset($_GET['pokemon1_select']) && isset($_GET['pokemon2_select'])) {
+    if (isset($_GET['pokemon1_select']) && isset($_GET['pokemon2_select']) && $_GET['pokemon1_select'] != $_GET['pokemon2_select']) {
         $pokemon1 = $pokemonTab[htmlspecialchars($_GET['pokemon1_select'])];
         $pokemon2 = $pokemonTab[htmlspecialchars($_GET['pokemon2_select'])];
 
@@ -88,7 +88,7 @@ require_once "./pokemon_ini.php";
 
         <form action="index.php" method="get">
             <input type="hidden" id="pokemon_select_hidden" name="pokemon1_select" value="">
-            <input type="hidden" name="pokemon2_select" value="<?php echo rand(0, count($pokemonTab)-1); ?>">
+            <input type="hidden" name="pokemon2_select" id="pokemon2_select" value="<?php echo rand(0, count($pokemonTab)-1); ?>">
             <input type="submit" value="combattre">
         </form>
 
@@ -96,7 +96,6 @@ require_once "./pokemon_ini.php";
 
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="./src/javascript/script.js"></script>
     <script src="./src/javascript/slider.js"></script>
 </body>
 </html>

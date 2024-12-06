@@ -17,12 +17,20 @@ document.addEventListener("DOMContentLoaded", () => {
     slides.forEach((slide) => slide.classList.remove("active-slide"));
     slides.forEach((slide) => (slide.style.transform = ""));
     const activeSlide = slides[swiper.activeIndex];
-    console.log(activeSlide.querySelector("#id_pokemon").value);
     if (activeSlide) {
       activeSlide.classList.add("active-slide"); // Ajouter la classe à la slide centrale
       document.querySelector(".active-slide").style.transform = "scale(1.2)";
       document.getElementById("pokemon_select_hidden").value =
         activeSlide.querySelector("#id_pokemon").value;
+        
+      while (
+        document.getElementById("pokemon_select_hidden").value ==
+        document.getElementById("pokemon2_select").value
+      ) {
+        document.getElementById("pokemon2_select").value = Math.floor(
+          Math.random() * 7
+        );
+      }
     }
   };
 
