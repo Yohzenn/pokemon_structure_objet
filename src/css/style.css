@@ -65,7 +65,7 @@ i {
 /* CSS */
 .title_combat {
   text-align: center;
-  padding-top: 5rem;
+  padding: 2rem;
   font-size: 3rem;
   color: white;
 }
@@ -117,7 +117,7 @@ body {
 }
 
 #combattre {
-  padding:10px 30px;
+  padding: 10px 30px;
   background-color: red;
   color: white;
   text-align: center;
@@ -133,11 +133,11 @@ form {
   justify-content: center;
 }
 
-.feu{
+.feu {
   background-color: red;
 }
 
-.plante{
+.plante {
   background-color: palegreen;
 }
 
