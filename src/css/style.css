@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Pokemon";
+  src: url("../fonts/Pokemon_Hollow.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -64,6 +71,7 @@ i {
 
 /* CSS */
 .title_combat {
+  font-family: "Pokemon", sans-serif;
   text-align: center;
   padding: 2rem;
   font-size: 3rem;
