@@ -13,9 +13,9 @@
   z-index: 10; /* Assure-toi qu'elles sont devant les slides */
   font-size: 2rem;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(131, 131, 131, 1);
   border-radius: 50%;
-  padding: 10px;
+  padding: 20px;
 }
 
 .swiper-button-prev {
@@ -54,7 +54,7 @@ i {
   height: fit-content;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.7;
-  background-color: #4fbdea;
+  /* background-color: #4fbdea; */
 }
 
 .active-slide {
@@ -66,7 +66,7 @@ i {
 .title_combat {
   text-align: center;
   padding-top: 5rem;
-
+  font-size: 3rem;
   color: white;
 }
 
@@ -76,7 +76,8 @@ body {
   /* background-position: center; */
   background-size: cover;
   backdrop-filter: brightness(60%);
-  height: 100vh;
+  height: auto;
+  padding-bottom: 40px;
 }
 
 #top {
@@ -113,4 +114,33 @@ body {
   display: flex;
   gap: 10px;
   margin-top: 20px;
+}
+
+#combattre {
+  padding:10px 30px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  border: none;
+  font-weight: 700;
+  font-size: 2rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.feu{
+  background-color: red;
+}
+
+.plante{
+  background-color: palegreen;
+}
+
+.eau {
+  background-color: #4fbdea;
 }

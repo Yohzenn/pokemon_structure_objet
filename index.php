@@ -38,8 +38,9 @@ require_once "./pokemon_ini.php";
                 $i = 0;
                 foreach ($pokemonTab as $pokemon) {            
                 ?>
-                <div class="swiper-slide">
-                    <input type="hidden" id="id_pokemon" value=<?php echo $i ?>>
+                <div class="swiper-slide <?php echo $pokemon->getType()?>" >
+                    <input type="hidden" id="id_pokemon" value=<?php echo $i ?>
+                    >
                     <div id="top">
                         <h3 id="nom"><?= ucfirst($pokemon->getNom()); ?> </h3>
                         <h3 id="pv"><?= $pokemon->getPointsDeVie(); ?> PV</h3>
@@ -91,7 +92,7 @@ require_once "./pokemon_ini.php";
             <form action="index.php" method="get">
                 <input type="hidden" id="pokemon_select_hidden" name="pokemon1_select" value="">
                 <input type="hidden" name="pokemon2_select" id="pokemon2_select" value="<?php echo rand(0, count($pokemonTab)-1); ?>">
-                <input type="submit" value="combattre">
+                <input id="combattre" type="submit" value="Combattre">
             </form>
 
         <?php }; ?>
