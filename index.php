@@ -8,7 +8,10 @@ require_once "./pokemon_ini.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Combat pokemon</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <script src="https://kit.fontawesome.com/ec35368b02.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/affichage.css">
@@ -156,7 +159,7 @@ require_once "./pokemon_ini.php";
         <?php }; ?>
 
 
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="./src/javascript/slider.js"></script>
 
     </main>
